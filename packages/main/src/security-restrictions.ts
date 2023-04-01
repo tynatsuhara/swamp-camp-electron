@@ -43,9 +43,9 @@ app.on("web-contents-created", (_, contents) => {
      */
     contents.on("will-navigate", (event, url) => {
         const { origin } = new URL(url)
-        // if (ALLOWED_ORIGINS_AND_PERMISSIONS.has(origin)) {
-        return
-        // }
+        if (ALLOWED_ORIGINS_AND_PERMISSIONS.has(origin)) {
+            return
+        }
 
         // Prevent navigation
         event.preventDefault()
@@ -105,14 +105,14 @@ app.on("web-contents-created", (_, contents) => {
      */
     contents.on("will-attach-webview", (event, webPreferences, params) => {
         const { origin } = new URL(params.src)
-        // if (!ALLOWED_ORIGINS_AND_PERMISSIONS.has(origin)) {
-        //   if (import.meta.env.DEV) {
-        //     console.warn(`A webview tried to attach ${params.src}, but was blocked.`);
-        //   }
+        if (!ALLOWED_ORIGINS_AND_PERMISSIONS.has(origin)) {
+            if (import.meta.env.DEV) {
+                console.warn(`A webview tried to attach ${params.src}, but was blocked.`)
+            }
 
-        //   event.preventDefault();
-        //   return;
-        // }
+            event.preventDefault()
+            return
+        }
 
         // Strip away preload scripts if unused or verify their location is legitimate.
         delete webPreferences.preload
