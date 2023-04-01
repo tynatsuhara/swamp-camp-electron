@@ -14,6 +14,7 @@
     "build:main": "cd ./packages/main && vite build",
     "build:preload": "cd ./packages/preload && vite build",
     "build:renderer": "cd ./packages/renderer && vite build",
+    "copy:renderer": "rm -rf ./packages/renderer/dist && cp -r ../swamp.camp/static ./packages/renderer && mv ./packages/renderer/static ./packages/renderer/dist",
     "compile": "cross-env MODE=production npm run build && electron-builder build --config .electron-builder.config.js --dir --config.asar=false",
     "test": "npm run test:main && npm run test:preload && npm run test:renderer && npm run test:e2e",
     "test:e2e": "npm run build && vitest run",
