@@ -24,15 +24,15 @@ That's all you need. 😉
 
 ### Electron [![Electron version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/electron?label=%20)][electron]
 
-- This template uses the latest electron version with all the latest security patches.
-- The architecture of the application is built according to the security [guides](https://www.electronjs.org/docs/tutorial/security) and best practices.
-- The latest version of the [electron-builder] is used to package the application.
+-   This template uses the latest electron version with all the latest security patches.
+-   The architecture of the application is built according to the security [guides](https://www.electronjs.org/docs/tutorial/security) and best practices.
+-   The latest version of the [electron-builder] is used to package the application.
 
 ### Vite [![Vite version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/vite?label=%20)][vite]
 
-- [Vite] is used to bundle all source codes. It's an extremely fast bundler, that has a vast array of amazing features. You can learn more about how it is arranged in [this](https://www.youtube.com/watch?v=xXrhg26VCSc) video.
-- Vite [supports](https://vitejs.dev/guide/env-and-mode.html) reading `.env` files. You can also specify the types of your environment variables in [`types/env.d.ts`](types/env.d.ts).
-- Automatic hot-reloads for the `Main` and `Renderer` processes.
+-   [Vite] is used to bundle all source codes. It's an extremely fast bundler, that has a vast array of amazing features. You can learn more about how it is arranged in [this](https://www.youtube.com/watch?v=xXrhg26VCSc) video.
+-   Vite [supports](https://vitejs.dev/guide/env-and-mode.html) reading `.env` files. You can also specify the types of your environment variables in [`types/env.d.ts`](types/env.d.ts).
+-   Automatic hot-reloads for the `Main` and `Renderer` processes.
 
 Vite provides many useful features, such as: `TypeScript`, `TSX/JSX`, `CSS/JSON Importing`, `CSS Modules` , `Web Assembly` and much more.
 
@@ -40,33 +40,33 @@ Vite provides many useful features, such as: `TypeScript`, `TSX/JSX`, `CSS/JSON 
 
 ### TypeScript [![TypeScript version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/typescript?label=%20)][typescript] (optional)
 
-- The latest version of TypeScript is used for all the source code.
-- **Vite** supports TypeScript out of the box. However, it does not support type checking.
-- Code formatting rules follow the latest TypeScript recommendations and best practices thanks to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
+-   The latest version of TypeScript is used for all the source code.
+-   **Vite** supports TypeScript out of the box. However, it does not support type checking.
+-   Code formatting rules follow the latest TypeScript recommendations and best practices thanks to [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
 
 > [Guide to disable typescript and remove dependencies](https://github.com/cawa-93/vite-electron-builder/discussions/339)
 
 ### Vue [![Vue version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/vue?label=%20&)][vue] (optional)
 
-- By default, web pages are built using [Vue]. However, you can easily change that. Or not use additional frameworks at all.
-- Code formatting rules follow the latest Vue recommendations and best practices thanks to [eslint-plugin-vue].
+-   By default, web pages are built using [Vue]. However, you can easily change that. Or not use additional frameworks at all.
+-   Code formatting rules follow the latest Vue recommendations and best practices thanks to [eslint-plugin-vue].
 
 > [Find more forks 🔱 for others frameworks or setups](https://github.com/cawa-93/vite-electron-builder/discussions/categories/forks)
 
 ### Continuous Integration
 
-- The configured workflow will check the types for each push and PR.
-- The configured workflow will check the code style for each push and PR.
-- **Automatic tests** used [Vitest ![Vitest version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/vitest?label=%20&color=yellow)][vitest] -- A blazing fast test framework powered by Vite.
-  - Unit tests are placed within each package and are ran separately.
+-   The configured workflow will check the types for each push and PR.
+-   The configured workflow will check the code style for each push and PR.
+-   **Automatic tests** used [Vitest ![Vitest version](https://img.shields.io/github/package-json/dependency-version/cawa-93/vite-electron-builder/dev/vitest?label=%20&color=yellow)][vitest] -- A blazing fast test framework powered by Vite.
+    -   Unit tests are placed within each package and are ran separately.
 
 ![Workflow graph](https://user-images.githubusercontent.com/1662812/213429323-ef4bcc87-c273-4f2f-b77f-c04cf6dbc36d.png)
 
 ### Publishing
 
-- Each time you push changes to the `main` branch, the [`release`](.github/workflows/release.yml) workflow starts, which creates a new draft release. For each next commit will be created and replaced artifacts. That way you will always have draft with latest artifacts, and the release can be published once it is ready.
-  - Code signing supported. See [`release` workflow](.github/workflows/release.yml).
-  - **Auto-update is supported**. After the release is published, all client applications will download the new version and install updates silently.
+-   Each time you push changes to the `main` branch, the [`release`](.github/workflows/release.yml) workflow starts, which creates a new draft release. For each next commit will be created and replaced artifacts. That way you will always have draft with latest artifacts, and the release can be published once it is ready.
+    -   Code signing supported. See [`release` workflow](.github/workflows/release.yml).
+    -   **Auto-update is supported**. After the release is published, all client applications will download the new version and install updates silently.
 
 > **Note**: This template **configured only for GitHub public repository**, but electron-builder also supports other update distribution servers. Find more in [electron-builder docs](https://www.electron.build/configuration/publish).
 
@@ -78,9 +78,9 @@ The template requires a minimum amount [dependencies](package.json). Only **Vite
 
 The structure of this template is very similar to a monorepo. The entire source code of the project is divided into three modules (packages) that are each bundled independently:
 
-- [`packages/renderer`](packages/renderer). Responsible for the contents of the application window. In fact, it is a regular web application. In developer mode, you can even open it in a browser. The development and build process is the same as for classic web applications. Access to low-level API electrons or Node.js is done through the _preload_ layer.
-- [`packages/preload`](packages/preload). Contain Electron [**preload scripts**](https://www.electronjs.org/docs/latest/tutorial/tutorial-preload). Acts as an intermediate bridge between the _renderer_ process and the API exposed by electron and Node.js. Runs in an _isolated browser context_, but has direct access to the full Node.js functionality.
-- [`packages/main`](packages/main) Contain Electron [**main script**](https://www.electronjs.org/docs/tutorial/quick-start#create-the-main-script-file). This is the main process that powers the application. It manages creating and handling the spawned BrowserWindow, setting and enforcing secure permissions and request handlers. You can also configure it to do much more as per your need, such as: logging, reporting statistics and health status among others.
+-   [`packages/renderer`](packages/renderer). Responsible for the contents of the application window. In fact, it is a regular web application. In developer mode, you can even open it in a browser. The development and build process is the same as for classic web applications. Access to low-level API electrons or Node.js is done through the _preload_ layer.
+-   [`packages/preload`](packages/preload). Contain Electron [**preload scripts**](https://www.electronjs.org/docs/latest/tutorial/tutorial-preload). Acts as an intermediate bridge between the _renderer_ process and the API exposed by electron and Node.js. Runs in an _isolated browser context_, but has direct access to the full Node.js functionality.
+-   [`packages/main`](packages/main) Contain Electron [**main script**](https://www.electronjs.org/docs/tutorial/quick-start#create-the-main-script-file). This is the main process that powers the application. It manages creating and handling the spawned BrowserWindow, setting and enforcing secure permissions and request handlers. You can also configure it to do much more as per your need, such as: logging, reporting statistics and health status among others.
 
 Schematically, the structure of the application and the method of communication between packages can be depicted as follows:
 
@@ -122,8 +122,8 @@ The next step is to package a ready to distribute Electron app for macOS, Window
 
 To do this, use [electron-builder]:
 
-- Using the npm script `compile`: This script is configured to compile the application as quickly as possible. It is not ready for distribution, it is compiled only for the current platform and is used for debugging.
-- Using GitHub Actions: The application is compiled for any platform and ready-to-distribute files are automatically added as a draft to the GitHub releases page.
+-   Using the npm script `compile`: This script is configured to compile the application as quickly as possible. It is not ready for distribution, it is compiled only for the current platform and is used for debugging.
+-   Using GitHub Actions: The application is compiled for any platform and ready-to-distribute files are automatically added as a draft to the GitHub releases page.
 
 ### Working with dependencies
 
@@ -141,17 +141,17 @@ In the preload context, create a function that reads and returns data. To make t
 
 ```ts
 // preload/index.ts
-import {readFile} from 'node:fs/promises';
+import { readFile } from "node:fs/promises"
 
 // Encapsulate types if you use typescript
 interface UserData {
-  prop: string;
+    prop: string
 }
 
 // Encapsulate all node.js api
 // Everything you exported from preload/index.ts may be called in renderer
 export function getUserData(): Promise<UserData> {
-  return readFile('/path/to/file/in/user/filesystem.json', {encoding: 'utf8'}).then(JSON.parse);
+    return readFile("/path/to/file/in/user/filesystem.json", { encoding: "utf8" }).then(JSON.parse)
 }
 ```
 
@@ -159,8 +159,8 @@ Now you can import and call the method in renderer
 
 ```ts
 // renderer/anywere/component.ts
-import {getUserData} from '#preload';
-const userData = await getUserData();
+import { getUserData } from "#preload"
+const userData = await getUserData()
 ```
 
 > Find more in [Context Isolation tutorial](https://www.electronjs.org/docs/tutorial/context-isolation#security-considerations).
@@ -199,8 +199,8 @@ The mode option is used to specify the value of `import.meta.env.MODE` and the c
 
 By default, there are two modes:
 
-- `production` is used by default
-- `development` is used by `npm run watch` script
+-   `production` is used by default
+-   `development` is used by `npm run watch` script
 
 When running the build script, the environment variables are loaded from the following files in your project root:
 

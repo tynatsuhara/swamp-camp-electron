@@ -2,9 +2,7 @@
 **/dist
 **/*.svg
 
-package.json
 package-lock.json
 .electron-vendors.cache.json
 
-.github
 .idea
