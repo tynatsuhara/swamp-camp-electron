@@ -1,7 +1,7 @@
 import {app} from 'electron';
+import {platform} from 'node:process';
 import './security-restrictions';
 import {restoreOrCreateWindow} from '/@/mainWindow';
-import {platform} from 'node:process';
 
 /**
  * Prevent electron from running multiple instances.
@@ -12,11 +12,6 @@ if (!isSingleInstance) {
   process.exit(0);
 }
 app.on('second-instance', restoreOrCreateWindow);
-
-/**
- * Disable Hardware Acceleration to save more system resources.
- */
-app.disableHardwareAcceleration();
 
 /**
  * Shout down background process if all windows was closed
@@ -79,7 +74,7 @@ if (import.meta.env.PROD) {
       const autoUpdater =
         module.autoUpdater ||
         // @ts-expect-error Hotfix for https://github.com/electron-userland/electron-builder/issues/7338
-        (module.default.autoUpdater as (typeof module)['autoUpdater']);
+        (module.default.autoUpdater as typeof module['autoUpdater']);
       return autoUpdater.checkForUpdatesAndNotify();
     })
     .catch(e => console.error('Failed check and install updates:', e));
