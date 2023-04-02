@@ -26,21 +26,22 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         steps:
-            - name: build SWAMP CAMP
-            - uses: actions/checkout@v3
+            - name: check out SWAMP CAMP
+              uses: actions/checkout@v3
               with:
                   repository: ${{ secrets.SWAMP_CAMP_REMOTE_URL }}
                   ssh-key: ${{ secrets.SWAMP_CAMP_DEPLOY_KEY }}
                   lfs: true
                   path: swamp.camp
-            - uses: actions/setup-node@v3
+
+            - name: build SWAMP CAMP
+              uses: actions/setup-node@v3
               with:
                   node-version: 16
                   cache: "npm"
             - run: npm install
             - run: npm run build:prod
 
-            - name: check out repo
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
