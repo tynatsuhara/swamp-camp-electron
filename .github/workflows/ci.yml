@@ -29,7 +29,7 @@ on:
 
 concurrency:
     group: ci-${{ github.ref }}
-    cancel-in-progress: false
+    cancel-in-progress: true
 
 jobs:
     # tests:
