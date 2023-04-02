@@ -26,14 +26,14 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         steps:
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+
             # check out main repo
             - uses: actions/checkout@v3
               with:
                   path: main
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  cache: "npm"
 
             - name: check out SWAMP CAMP
               uses: actions/checkout@v3
