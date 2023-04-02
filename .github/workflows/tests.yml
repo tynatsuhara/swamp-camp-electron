@@ -22,7 +22,7 @@ jobs:
               with:
                   node-version: 16
                   cache: "npm"
-            - run: npm ci
+            - run: npm install
             - run: npm run test:main --if-present
             - run: npm run test:preload --if-present
             - run: npm run test:renderer --if-present

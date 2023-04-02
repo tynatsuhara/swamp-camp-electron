@@ -26,15 +26,27 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         steps:
+            - name: build SWAMP CAMP
             - uses: actions/checkout@v3
-
+              with:
+                  repository: ${{ secrets.SWAMP_CAMP_REMOTE_URL }}
+                  ssh-key: ${{ secrets.SWAMP_CAMP_DEPLOY_KEY }}
+                  lfs: true
+                  path: swamp.camp
             - uses: actions/setup-node@v3
               with:
-                  node-version: 16 # Need for npm >=7.7
+                  node-version: 16
                   cache: "npm"
+            - run: npm install
+            - run: npm run build:prod
 
-            - run: npm ci
-
+            - name: check out repo
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: "npm"
+            - run: npm install
             - run: npm run build
 
             - name: Compile artifacts ${{ inputs.dry-run && '' || 'and upload them to github release' }}
