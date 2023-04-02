@@ -33,13 +33,13 @@ jobs:
                   ssh-key: ${{ secrets.SWAMP_CAMP_DEPLOY_KEY }}
                   lfs: true
                   path: swamp.camp
+            - run: cd $GITHUB_WORKSPACE/swamp.camp
 
             - name: build SWAMP CAMP
               uses: actions/setup-node@v3
               with:
                   node-version: 16
                   cache: "npm"
-            - run: cd $GITHUB_WORKSPACE/swamp.camp
             - run: npm install
             - run: npm run build:native
 
