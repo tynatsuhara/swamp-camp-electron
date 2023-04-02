@@ -39,6 +39,7 @@ jobs:
               with:
                   node-version: 16
                   cache: "npm"
+            - run: cd $GITHUB_WORKSPACE/swamp.camp
             - run: npm install
             - run: npm run build:native
 
