@@ -26,6 +26,7 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         steps:
+            - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
@@ -43,7 +44,6 @@ jobs:
                   npm install
                   npm run build:native
 
-            - uses: actions/checkout@v3
             - run: |
                   npm install
                   npm run build
