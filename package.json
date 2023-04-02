@@ -1,6 +1,6 @@
 {
-    "name": "vite-electron-builder",
-    "description": "Secure boilerplate for Electron app based on Vite",
+    "name": "swamp-camp-electron",
+    "description": "Produces SWAMP CAMP native desktop builds",
     "version": "1.0.2",
     "private": true,
     "author": "Tyler Natsuhara",
