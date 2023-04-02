@@ -1,3 +1,5 @@
+const BINARY_PREFIX = "Camp.Swamp"
+
 /**
  * @type {() => import('electron-builder').Configuration}
  * @see https://www.electron.build/configuration/configuration
@@ -17,6 +19,7 @@ module.exports = async function () {
             version: getVersion(),
         },
         linux: {
+            artifactName: `${BINARY_PREFIX}-\${version}.\${ext}`,
             target: "flatpak",
             maintainer: "hello@swamp.camp",
             category: "Game",
