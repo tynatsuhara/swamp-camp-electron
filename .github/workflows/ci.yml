@@ -39,6 +39,4 @@ jobs:
             dry-run: ${{ github.event_name != 'push' || github.ref_name != 'main' }}
         needs: [] # [tests]
         uses: ./.github/workflows/release.yml
-        secrets:
-            SWAMP_CAMP_REPO: ${{ secrets.SWAMP_CAMP_REPO }}
-            SWAMP_CAMP_ACCESS_TOKEN: ${{ secrets.SWAMP_CAMP_ACCESS_TOKEN }}
+        secrets: inherit
