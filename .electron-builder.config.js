@@ -19,6 +19,7 @@ module.exports = async function () {
         linux: {
             target: "flatpak",
             maintainer: "hello@swamp.camp",
+            category: "Game",
         },
         flatpak: {},
     }
