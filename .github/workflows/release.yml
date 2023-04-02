@@ -26,13 +26,17 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         steps:
+            # check out main repo
             - uses: actions/checkout@v3
+              with:
+                  path: main
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
                   cache: "npm"
 
-            - uses: actions/checkout@v3
+            - name: check out SWAMP CAMP
+              uses: actions/checkout@v3
               with:
                   repository: ${{ secrets.SWAMP_CAMP_REPO }}
                   token: ${{ secrets.SWAMP_CAMP_ACCESS_TOKEN }}
@@ -44,7 +48,9 @@ jobs:
                   npm install
                   npm run build:native
 
-            - run: |
+            - name: built native app
+              working-directory: ./main
+              run: |
                   npm install
                   npm run build
 
