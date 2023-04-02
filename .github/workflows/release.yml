@@ -26,25 +26,25 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         steps:
-            - uses: actions/checkout@v3
-
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
                   cache: "npm"
 
-            - uses: webfactory/ssh-agent@v0.8.0
+            - uses: actions/checkout@v3
               with:
-                  ssh-private-key: ${{ secrets.SWAMP_CAMP_DEPLOY_KEY }}
+                  repository: ${{ secrets.SWAMP_CAMP_REPO }}
+                  token: ${{ secrets.SWAMP_CAMP_ACCESS_TOKEN }} # `GH_PAT` is a secret that contains your PAT
+                  path: swamp.camp
 
-            - run: |
-                  cd ..
-                  git clone ${{ secrets.SWAMP_CAMP_REMOTE_URL }} swamp.camp
-                  cd swamp.camp
+            - name: build SWAMP CAMP
+              working-directory: ./swamp.camp
+              run: |
                   npm install
                   npm run build:native
 
-                  cd $GITHUB_WORKSPACE
+            - uses: actions/checkout@v3
+            - run: |
                   npm install
                   npm run build
 
