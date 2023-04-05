@@ -1,6 +1,5 @@
-/**
- * @module preload
- */
+import { ipcRenderer } from "electron"
 
-export { sha256sum } from "./nodeCrypto"
-export { versions } from "./versions"
+document.addEventListener("swamp-camp-quit", () => {
+    ipcRenderer.invoke("quit-app")
+})

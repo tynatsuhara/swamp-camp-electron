@@ -12,6 +12,8 @@ async function createWindow() {
             webviewTag: false, // The webview tag is not recommended. Consider alternatives like an iframe or Electron's BrowserView. @see https://www.electronjs.org/docs/latest/api/webview-tag#warning
             preload: join(app.getAppPath(), "packages/preload/dist/index.cjs"),
         },
+        fullscreen: true,
+        title: "SWAMP CAMP",
     })
 
     /**
@@ -23,6 +25,7 @@ async function createWindow() {
      * @see https://github.com/electron/electron/issues/25012 for the afford mentioned issue.
      */
     browserWindow.on("ready-to-show", () => {
+        browserWindow?.maximize()
         browserWindow?.show()
 
         if (import.meta.env.DEV) {

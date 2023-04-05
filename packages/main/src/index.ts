@@ -1,4 +1,4 @@
-import { app } from "electron"
+import { app, ipcMain } from "electron"
 import { platform } from "node:process"
 import "./security-restrictions"
 import { restoreOrCreateWindow } from "/@/mainWindow"
@@ -13,6 +13,8 @@ if (!isSingleInstance) {
 }
 app.on("second-instance", restoreOrCreateWindow)
 
+app.setName("SWAMP CAMP")
+
 /**
  * Shout down background process if all windows was closed
  */
@@ -26,6 +28,8 @@ app.on("window-all-closed", () => {
  * @see https://www.electronjs.org/docs/latest/api/app#event-activate-macos Event: 'activate'.
  */
 app.on("activate", restoreOrCreateWindow)
+
+ipcMain.handle("quit-app", () => app.quit())
 
 /**
  * Create the application window when the background process is ready.

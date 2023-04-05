@@ -3,7 +3,7 @@
     "description": "Produces SWAMP CAMP native desktop builds",
     "version": "1.0.0",
     "private": true,
-    "author": "Tyler Natsuhara",
+    "author": "Ty Natsuhara",
     "main": "packages/main/dist/index.cjs",
     "scripts": {
         "build": "npm run build:main && npm run build:preload && npm run copy:renderer",
