@@ -22,6 +22,8 @@ module.exports = async function () {
             maintainer: "hello@swamp.camp",
             category: "Game",
         },
-        flatpak: {},
+        flatpak: {
+            finishArgs: ["--filesystem=home"],
+        },
     }
 }
