@@ -8,6 +8,7 @@ module.exports = async function () {
     return {
         appId: "camp.swamp.electron",
         productName: "SWAMP CAMP",
+        asar: false,
         directories: {
             output: "dist",
             buildResources: "buildResources",
