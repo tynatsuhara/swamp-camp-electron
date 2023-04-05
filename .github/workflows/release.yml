@@ -10,7 +10,7 @@ on:
 
 concurrency:
     group: release-${{ github.ref }}
-    cancel-in-progress: true
+    cancel-in-progress: false
 
 defaults:
     run:
@@ -19,9 +19,9 @@ defaults:
 jobs:
     draft_release:
         strategy:
-            fail-fast: true
+            fail-fast: false
             matrix:
-                os: [windows-latest]
+                os: [windows-latest, ubuntu-latest, macos-latest]
 
         runs-on: ${{ matrix.os }}
 

@@ -3,7 +3,7 @@ on: [workflow_call]
 
 concurrency:
     group: tests-${{ github.ref }}
-    cancel-in-progress: true
+    cancel-in-progress: false
 
 defaults:
     run:
