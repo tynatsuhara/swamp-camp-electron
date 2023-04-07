@@ -58,7 +58,7 @@ jobs:
               run: |
                   sudo apt-get install -y flatpak flatpak-builder elfutils
                   flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
-                  flatpak install --noninteractive --user flathub org.freedesktop.Platform//21.08 org.freedesktop.Sdk//21.08 org.electronjs.org.Electron2.BaseApp//21.08
+                  flatpak install --noninteractive --user flathub org.freedesktop.Platform//21.08 org.freedesktop.Sdk//21.08
               if: ${{ matrix.os == 'ubuntu-latest' }}
 
             - name: Compile artifacts ${{ inputs.dry-run && '' || 'and upload them to github release' }}
