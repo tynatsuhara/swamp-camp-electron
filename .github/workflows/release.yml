@@ -41,6 +41,7 @@ jobs:
                   repository: ${{ secrets.SWAMP_CAMP_REPO }}
                   token: ${{ secrets.SWAMP_CAMP_ACCESS_TOKEN }}
                   path: swamp.camp
+                  lfs: true
 
             - name: build SWAMP CAMP
               working-directory: ./swamp.camp
