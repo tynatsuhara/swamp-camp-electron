@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron"
+import { app, BrowserWindow, shell } from "electron"
 import { join } from "node:path"
 import { URL } from "node:url"
 
@@ -14,6 +14,12 @@ async function createWindow() {
         },
         fullscreen: true,
         title: "SWAMP CAMP",
+    })
+
+    // allow opening links in browser
+    browserWindow.webContents.setWindowOpenHandler(({ url }) => {
+        shell.openExternal(url)
+        return { action: "deny" }
     })
 
     /**
