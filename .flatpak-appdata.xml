@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component type="desktop">
+  <id>camp.swamp.electron</id>
+  <name>SWAMP CAMP</name>
+  <developer_name>Ty Natsuhara</developer_name>
+  <summary>a town-building/orc-fighting/swamp-camping game</summary>
+  <url type="homepage">https://swamp.camp/</url>
+  <description>
+    <p>SWAMP CAMP is a free-to-play town-building game where you journey to an unknown land to establish a settlement. Collect valuable resources, fight off scary monsters, and lead your town to prosperity!</p>
+  </description>
+  <provides>
+    <id>camp.swamp.electron</id>
+  </provides>
+</component>

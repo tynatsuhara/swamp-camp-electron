@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=SWAMP CAMP
+Exec=run.sh %U
+Terminal=false
+Type=Application
+Icon=camp.swamp.electron
+StartupWMClass=SWAMP CAMP
+Categories=Game;
+X-Flatpak=camp.swamp.electron
