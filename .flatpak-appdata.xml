@@ -3,6 +3,7 @@
   <id>camp.swamp.electron</id>
   <name>SWAMP CAMP</name>
   <project_license>UNLICENSED</project_license>
+  <metadata_license>MIT</metadata_license>
   <developer_name>Ty Natsuhara</developer_name>
   <summary>a town-building/orc-fighting/swamp-camping game</summary>
   <url type="homepage">https://swamp.camp/</url>
