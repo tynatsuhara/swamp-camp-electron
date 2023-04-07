@@ -63,7 +63,7 @@ jobs:
 
             - name: Compile artifacts ${{ inputs.dry-run && '' || 'and upload them to github release' }}
               working-directory: ./main
-              run: npx --no-install electron-builder --config .electron-builder.config.js --publish ${{ inputs.dry-run && 'never' || 'always' }}
+              run: DEBUG=flatpak-bundler npx --no-install electron-builder --config .electron-builder.config.js --publish ${{ inputs.dry-run && 'never' || 'always' }}
               env:
                   # Code Signing params
                   # See https://www.electron.build/code-signing
