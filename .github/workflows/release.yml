@@ -54,6 +54,11 @@ jobs:
                   npm install
                   npm run build
 
+            - run: sudo apt-get install -y flatpak
+              if: ${{ matrix.os == 'ubuntu-latest' }}
+            - run: sudo apt-get install -y flatpak-builder
+              if: ${{ matrix.os == 'ubuntu-latest' }}
+
             - name: Compile artifacts ${{ inputs.dry-run && '' || 'and upload them to github release' }}
               working-directory: ./main
               run: npx --no-install electron-builder --config .electron-builder.config.js --publish ${{ inputs.dry-run && 'never' || 'always' }}

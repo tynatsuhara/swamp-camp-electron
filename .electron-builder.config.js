@@ -1,5 +1,3 @@
-const fixPath = require("fix-path")
-
 const PACKAGE_NAME = "camp.swamp.electron"
 
 /**
@@ -7,8 +5,6 @@ const PACKAGE_NAME = "camp.swamp.electron"
  * @see https://www.electron.build/configuration/configuration
  */
 module.exports = async function () {
-    fixPath()
-
     const { getVersion } = await import("./version/getVersion.mjs")
 
     return {
