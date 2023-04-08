@@ -5,6 +5,11 @@ It injects the built frontend assets in `packages/renderer/`, then builds the El
 This keeps a clean separation between the two projects. Since there is a lot of Electron boilerplate,
 and SWAMP CAMP is still primarily a web game, I didn't want to smush all the web and Electron build logic together.
 
+# Releasing
+
+GitHub Actions is used to release the applications for Windows, Linux, and Intel-based macs.
+Since Actions doesn't currently support Apple Silicon, `npm run release:m1` can be used on an M1+ Mac to release the app.
+
 #### Special thanks
 
 This project was based on [cawa-93/vite-electron-builder](https://github.com/cawa-93/vite-electron-builder), which is licensed under the MIT license.
