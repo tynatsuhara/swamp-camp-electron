@@ -1,6 +1,8 @@
 {
     "name": "swamp-camp-electron",
-    "description": "Produces SWAMP CAMP native desktop builds",
+    "description": "a town-building/orc-fighting/swamp-camping game",
+    "homepage": "https://swamp.camp",
+    "license": "UNLICENSED",
     "version": "1.0.0",
     "private": true,
     "author": "Ty Natsuhara",
