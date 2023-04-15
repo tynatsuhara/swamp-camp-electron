@@ -1,4 +1,4 @@
-const PACKAGE_NAME = "camp.swamp.electron"
+const PACKAGE_NAME = "camp.swamp.game"
 
 /**
  * @type {() => import('electron-builder').Configuration}

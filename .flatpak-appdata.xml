@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <component type="desktop">
-  <id>camp.swamp.electron</id>
+  <id>camp.swamp.game</id>
   <name>SWAMP CAMP</name>
   <project_license>UNLICENSED</project_license>
   <metadata_license>MIT</metadata_license>
@@ -11,6 +11,6 @@
     <p>SWAMP CAMP is a free-to-play town-building game where you journey to an unknown land to establish a settlement. Collect valuable resources, fight off scary monsters, and lead your town to prosperity!</p>
   </description>
   <provides>
-    <id>camp.swamp.electron</id>
+    <id>camp.swamp.game</id>
   </provides>
 </component>
