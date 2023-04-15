@@ -37,6 +37,9 @@ module.exports = async function () {
                 "--socket=pulseaudio",
                 // GPU acceleration
                 "--device=dri",
+                // Unfortunately, the only way to get gamepad access is with device=all :(
+                // https://github.com/flatpak/flatpak/issues/7
+                "--device=all",
             ],
             runtimeVersion: "22.08",
             branch: "main",
