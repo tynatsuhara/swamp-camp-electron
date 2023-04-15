@@ -1,7 +1,7 @@
 import { app, ipcMain } from "electron"
 import { platform } from "node:process"
 import "./security-restrictions"
-import { restoreOrCreateWindow } from "/@/mainWindow"
+import { getWindow, restoreOrCreateWindow } from "/@/mainWindow"
 
 /**
  * Prevent electron from running multiple instances.
@@ -28,8 +28,6 @@ app.on("window-all-closed", () => {
  * @see https://www.electronjs.org/docs/latest/api/app#event-activate-macos Event: 'activate'.
  */
 app.on("activate", restoreOrCreateWindow)
-
-ipcMain.handle("quit-app", () => app.quit())
 
 /**
  * Create the application window when the background process is ready.
@@ -59,3 +57,9 @@ if (import.meta.env.PROD) {
         })
         .catch((e) => console.error("Failed check and install updates:", e))
 }
+
+// These should have corresponding entries in preload/index.ts
+
+ipcMain.handle("quit-app", () => app.quit())
+
+ipcMain.handle("open-devtools", () => getWindow().then((win) => win.webContents.openDevTools()))

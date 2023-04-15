@@ -59,15 +59,20 @@ async function createWindow() {
  * Restore an existing BrowserWindow or Create a new BrowserWindow.
  */
 export async function restoreOrCreateWindow() {
-    let window = BrowserWindow.getAllWindows().find((w) => !w.isDestroyed())
-
-    if (window === undefined) {
-        window = await createWindow()
-    }
+    const window = await getWindow()
 
     if (window.isMinimized()) {
         window.restore()
     }
 
     window.focus()
+}
+
+export async function getWindow(): Promise<BrowserWindow> {
+    const window = BrowserWindow.getAllWindows().find((w) => !w.isDestroyed())
+    if (window) {
+        return window
+    }
+
+    return createWindow()
 }
