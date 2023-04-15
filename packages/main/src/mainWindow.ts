@@ -17,6 +17,10 @@ async function createWindow() {
         title: "SWAMP CAMP",
     })
 
+    browserWindow.setMenuBarVisibility(false)
+
+    browserWindow.webContents.session.setSpellCheckerEnabled(false)
+
     // allow opening links in browser
     browserWindow.webContents.setWindowOpenHandler(({ url }) => {
         shell.openExternal(url)
