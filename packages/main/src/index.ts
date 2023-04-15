@@ -1,4 +1,4 @@
-import { app, ipcMain } from "electron"
+import { app, globalShortcut, ipcMain } from "electron"
 import { platform } from "node:process"
 import "./security-restrictions"
 import { getWindow, restoreOrCreateWindow } from "/@/mainWindow"
@@ -14,6 +14,23 @@ if (!isSingleInstance) {
 app.on("second-instance", restoreOrCreateWindow)
 
 app.setName("SWAMP CAMP")
+
+const disabledShortcuts = [
+    // prevent reloading
+    "CommandOrControl+Shift+R",
+    "CommandOrControl+R",
+    "F5",
+]
+app.on("browser-window-focus", () => {
+    disabledShortcuts.forEach((shortcut) => {
+        globalShortcut.register(shortcut, () => {
+            console.log(`${shortcut} is pressed: Shortcut Disabled`)
+        })
+    })
+})
+app.on("browser-window-blur", () => {
+    disabledShortcuts.forEach((shortcut) => globalShortcut.unregister(shortcut))
+})
 
 /**
  * Shout down background process if all windows was closed
