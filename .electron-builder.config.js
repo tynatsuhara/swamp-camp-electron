@@ -30,6 +30,13 @@ module.exports = async function () {
                 "--filesystem=home",
                 // Allow communication with network
                 "--share=network",
+                // Access the windowing system
+                "--socket=wayland",
+                "--socket=fallback-x11",
+                // Audio
+                "--socket=pulseaudio",
+                // GPU acceleration
+                "--device=dri",
             ],
             runtimeVersion: "22.08",
             branch: "main",
