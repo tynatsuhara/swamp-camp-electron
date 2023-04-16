@@ -26,8 +26,6 @@ module.exports = async function () {
         },
         flatpak: {
             finishArgs: [
-                // Read/write home directory access
-                "--filesystem=home",
                 // Allow communication with network
                 "--share=network",
                 // Access the windowing system
