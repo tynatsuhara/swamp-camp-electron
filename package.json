@@ -20,7 +20,8 @@
         "test:preload": "vitest run -r packages/preload --passWithNoTests",
         "watch": "node scripts/watch.mjs",
         "postinstall": "cross-env ELECTRON_RUN_AS_NODE=1 electron scripts/update-electron-vendors.mjs",
-        "format": "npx prettier --write ."
+        "format": "npx prettier --write .",
+        "start": "npm run build && electron ."
     },
     "devDependencies": {
         "@types/node": "18.15.11",

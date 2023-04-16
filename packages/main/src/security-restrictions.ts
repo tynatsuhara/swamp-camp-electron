@@ -11,14 +11,8 @@ type Permission = Parameters<
 
 /**
  * A list of origins that you allow open INSIDE the application and permissions for them.
- *
- * In development mode you need allow open `VITE_DEV_SERVER_URL`.
  */
-const ALLOWED_ORIGINS_AND_PERMISSIONS = new Map<string, Set<Permission>>(
-    import.meta.env.DEV && import.meta.env.VITE_DEV_SERVER_URL
-        ? [[new URL(import.meta.env.VITE_DEV_SERVER_URL).origin, new Set()]]
-        : []
-)
+const ALLOWED_ORIGINS_AND_PERMISSIONS = new Map<string, Set<Permission>>([])
 
 /**
  * A list of origins that you allow open IN BROWSER.
