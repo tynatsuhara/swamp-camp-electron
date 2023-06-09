@@ -3,7 +3,7 @@
     "description": "a town-building/orc-fighting/swamp-camping game",
     "homepage": "https://swamp.camp",
     "license": "UNLICENSED",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "author": "Ty Natsuhara",
     "main": "packages/main/dist/index.cjs",
