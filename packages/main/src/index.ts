@@ -81,4 +81,6 @@ if (import.meta.env.PROD) {
 
 ipcMain.handle("quit-app", () => app.quit())
 
-ipcMain.handle("open-devtools", () => getWindow().then((win) => win.webContents.openDevTools()))
+ipcMain.handle("open-devtools", () =>
+    getWindow().then((win) => win.webContents.openDevTools({ mode: "right" }))
+)
